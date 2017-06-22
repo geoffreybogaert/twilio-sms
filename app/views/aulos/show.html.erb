@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Label:</strong>
+  <%= @aulo.label %>
+</p>
+
+<p>
+  <strong>Start at:</strong>
+  <%= @aulo.start_at %>
+</p>
+
+<p>
+  <strong>Organizer :</strong>
+  <%= @aulo.organizer.login %>
+</p>
+<p>
+  <strong>Attendees :</strong><br/>
+  <% @aulo.attendees.each do |attendee| %>
+    <%= attendee.login %><br/>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_aulo_path(@aulo) %> |
+<%= link_to 'Back', aulos_path %>

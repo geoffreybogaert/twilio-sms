@@ -1,0 +1,45 @@
+<%= form_for(@aulo) do |f| %>
+  <% if @aulo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aulo.errors.count, "error") %> prohibited this aulo from being saved:</h2>
+
+      <ul>
+      <% @aulo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :label %><br>
+    <%= f.text_field :label %>
+  </div>
+  <div class="field">
+    <%= f.label :start_at %><br>
+    <%= f.datetime_select :start_at %>
+  </div>
+  <div class="field">
+    <%= f.label :organizer_id %><br>
+    <%= f.collection_select :organizer_id, Organizer.all, :id, :login %>
+  </div>  
+  
+  
+<div class="param">
+
+    <%= f.label :attendees %>
+
+    <span class="ul">
+
+	<% Attendee.all.each do |attendee| %>
+	  <label class="li"><%= check_box_tag :attendee_ids, attendee.id, @aulo.attendees.include?(attendee), :name => 'aulo[attendee_ids][]' %> <u><%= attendee.login %></u></label><br />
+	<% end %>
+
+    </span>
+
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

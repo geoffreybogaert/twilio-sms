@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Login:</strong>
+  <%= @organizer.login %>
+</p>
+
+<p>
+  <strong>Phone number:</strong>
+  <%= @organizer.phone_number %>
+</p>
+
+<%= link_to 'Edit', edit_organizer_path(@organizer) %> |
+<%= link_to 'Back', organizers_path %>

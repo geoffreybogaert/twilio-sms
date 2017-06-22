@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Aulos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Label</th>
+      <th>Start at</th>
+      <th>Organizer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @aulos.each do |aulo| %>
+      <tr>
+        <td><%= aulo.label %></td>
+        <td><%= aulo.start_at %></td>
+        <td><%= aulo.organizer.login %></td>
+        <td><%= link_to 'Show', aulo %></td>
+        <td><%= link_to 'Edit', edit_aulo_path(aulo) %></td>
+        <td><%= link_to 'Destroy', aulo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Aulo', new_aulo_path %>
